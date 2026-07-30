@@ -1,0 +1,35 @@
+# Render.com one-click blueprint
+# Push repo to GitHub → https://dashboard.render.com/blueprints → connect this repo
+
+services:
+  - type: web
+    name: apka-munim-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: starter
+    healthCheckPath: /api/
+    envVars:
+      - key: MONGO_URL
+        sync: false            # set manually in Render dashboard (MongoDB Atlas URI)
+      - key: DB_NAME
+        value: paisabook_db
+      - key: JWT_SECRET
+        generateValue: true    # Render auto-generates a strong random value
+      - key: CORS_ORIGINS
+        sync: false            # e.g. https://apka-munim.vercel.app,https://kawachine.com
+      - key: ANTHROPIC_API_KEY
+        sync: false            # get from https://console.anthropic.com
+
+  - type: web
+    name: apka-munim-frontend
+    runtime: static
+    buildCommand: cd frontend && yarn install --frozen-lockfile && yarn build
+    staticPublishPath: ./frontend/build
+    envVars:
+      - key: REACT_APP_BACKEND_URL
+        sync: false            # e.g. https://apka-munim-backend.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

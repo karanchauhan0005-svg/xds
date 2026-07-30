@@ -1,0 +1,132 @@
+{
+  "theme_concept": {
+    "name": "PaisaBook",
+    "style": "Modern Light Theme",
+    "archetype": "Organic & Earthy",
+    "vibe": "Trustworthy, approachable, warm. Specifically tailored for Indian personal finance context (Hinglish copy support)."
+  },
+  "typography": {
+    "headings": {
+      "family": "Manrope, sans-serif",
+      "import": "@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');",
+      "scale": {
+        "h1": "text-4xl sm:text-5xl font-bold tracking-tight text-[#1C1917]",
+        "h2": "text-2xl sm:text-3xl font-semibold tracking-tight text-[#1C1917]",
+        "h3": "text-xl sm:text-2xl font-semibold text-[#1C1917]",
+        "h4": "text-lg sm:text-xl font-medium text-[#292524]"
+      }
+    },
+    "body": {
+      "family": "'IBM Plex Sans', sans-serif",
+      "import": "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');",
+      "scale": {
+        "base": "text-base leading-relaxed text-[#57534E]",
+        "small": "text-sm text-[#78716C]",
+        "tiny_labels": "text-xs font-semibold tracking-[0.2em] uppercase text-[#A8A29E]"
+      }
+    }
+  },
+  "colors": {
+    "background": {
+      "default": "#F9F8F6",
+      "surface": "#FFFFFF",
+      "surface_muted": "#F2F0EA"
+    },
+    "brand": {
+      "primary": "#2A4F4F",
+      "primary_hover": "#1F3B3B",
+      "accent_income": "#4A7C59",
+      "accent_expense": "#D96C52",
+      "accent_warning": "#E8B365"
+    },
+    "text": {
+      "primary": "#1C1917",
+      "secondary": "#57534E",
+      "disabled": "#A8A29E"
+    },
+    "borders": {
+      "default": "#E7E5DF",
+      "focus": "#2A4F4F"
+    },
+    "forbidden_colors": [
+      "#1B93A4",
+      "#7351B7",
+      "Generic Vercel-style purple/violet/blue gradients"
+    ]
+  },
+  "visual_enhancers": {
+    "shadows": {
+      "card": "shadow-sm",
+      "hover": "shadow-md hover:-translate-y-1 transition-transform duration-200",
+      "dropdown": "shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
+    },
+    "borders": {
+      "radius": "rounded-lg",
+      "style": "border border-[#E7E5DF]",
+      "note": "Use 1px subtle borders for dashboard cards to maintain the 'Data-Heavy' bento feel without overwhelming shadows."
+    },
+    "surfaces": {
+      "dashboard_cards": "Solid background (#FFFFFF), 1px subtle border, no heavy shadow by default.",
+      "glassmorphism": "Avoid in data tables to prevent visual refraction. Use flat solid surfaces for clarity."
+    }
+  },
+  "grids_and_layouts": {
+    "dashboard_grid": "High Density Grid (Bento style). Base Grid: grid-cols-1 md:grid-cols-3 lg:grid-cols-4. Tight gaps (gap-4 or gap-6).",
+    "spacing": "Generous Spacing Philosophy. Use p-6 or p-8 for card internal padding (e.g., p-6 for summary widgets).",
+    "alignment": "Left-align text, labels, and forms. Center-align empty states and main hero text on login."
+  },
+  "components_strategy": {
+    "buttons": "Pill-shaped (rounded-full) or slightly rounded (rounded-lg). Must have distinct hover state and transition.",
+    "cards": "Avoid default heavy shadow cards. Stick to clean rectangles with subtle borders (border-[#E7E5DF]).",
+    "forms": "Use customized Shadcn UI Input, Select. Labels should be left-aligned and use 'tiny_labels' styling.",
+    "charts": "Shadcn Recharts. Use brand.accent_income (#4A7C59) and brand.accent_expense (#D96C52) for data visualization.",
+    "tables": "Compact data tables for transactions. Left-align numerical data, or right-align monetary values.",
+    "badges": "Use soft pastel backgrounds with darker text for categories (e.g., bg-[#4A7C59]/10 text-[#4A7C59] for Income)."
+  },
+  "motion": {
+    "hover_states": "All interactive elements must explicitly define hover text and bg colors (e.g., hover:bg-[#1F3B3B] hover:text-white).",
+    "transitions": "Use specific properties: transition-colors, transition-transform. NEVER use transition-all.",
+    "entrance": "Staggered fade-in/slide-up for dashboard widgets and transaction lists."
+  },
+  "accessibility": {
+    "contrast": "Text must meet WCAG AA (minimum 4.5:1 for normal text). Do not use transparent backgrounds under text-heavy elements.",
+    "focus_states": "High contrast focus rings: focus:ring-2 focus:ring-[#2A4F4F] focus:outline-none focus-visible:ring-offset-2.",
+    "testing": "All interactive elements (buttons, inputs, menu items, tabs) MUST include data-testid attribute in kebab-case."
+  },
+  "media": {
+    "icons_library": "lucide-react (default, matches UI sizing).",
+    "empty_states_images": [
+      {
+        "url": "https://images.pexels.com/photos/5849577/pexels-photo-5849577.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Illustration of wallet with money showing income growth",
+        "placement": "AI Insights empty state or positive milestone."
+      },
+      {
+        "url": "https://images.pexels.com/photos/6289045/pexels-photo-6289045.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Vivid illustration of wallet with coins",
+        "placement": "Udhaar (Receivables/Payables) or Savings empty state."
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "PROJECT TYPE: This is a hybrid_fullstack React.js application (.js/.jsx files, NO .tsx). Use standard JavaScript syntax for Shadcn components.",
+    "FEATURES REQUIRED: JWT-based Login/Register, Dashboard (total balance, income/expense), Udhaar Tracker (Paise Lene Hai / Paise Dene Hai), Multi-account tracking, Charts (Recharts), Monthly Reports, and AI Insights.",
+    "COPYWRITING: Use Hindi/Hinglish terminology mixed with English (e.g., 'Udhaar Tracker', 'Paise Lene Hai (Receivables)', 'Kharcha (Expenses)') to make it culturally relevant and warm.",
+    "MULTI-CURRENCY: Default to INR (₹) throughout the UI. Allow an option/dropdown to switch to USD/EUR.",
+    "COMPONENTS: Use Shadcn UI primitives but rewrite them in standard .jsx if needed, or simply adapt the logic for .js. Do NOT use HTML-based native interactions (e.g., no <select>, use Shadcn Dropdown/Select).",
+    "DATA: Mock the backend logic, API responses, and JWT auth flow heavily. Clearly HIGHLIGHT 'MOCKED' in comments and UI if necessary.",
+    "AI INSIGHTS: Create a dedicated card or section using the 'Organic & Earthy' theme that simulates an LLM response analyzing the user's spending habits.",
+    "UDHAAR TRACKER: Implement specific visual indicators (green vs red/terracotta) for people you owe (Payables) vs people who owe you (Receivables). Include a 'Remind' button.",
+    "TESTING: Add data-testid attributes to ALL interactive elements (e.g., data-testid='login-submit-button', data-testid='add-transaction-btn')."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. In frontend design, this creates the 'AI slop' aesthetic. Avoid this: make creative, distinctive frontends.",
+    "DO NOT use generic purple/violet gradients or standard SaaS blue.",
+    "DO NOT apply universal transitions (transition: all). Use specific properties (transition-transform, transition-colors).",
+    "DO NOT center align the app container in App.css (.App { text-align: center; }).",
+    "Create depth through layered design elements with z-index hierarchy, not just heavy box-shadows.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "NEVER use AI assistant Emoji characters (🤖🧠💭💡🔮🎯) for icons. Use lucide-react.",
+    "Use 'sonner' for toast notifications."
+  ]
+}
